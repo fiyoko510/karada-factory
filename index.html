@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>からだの工場 — 食べたものが、エネルギーになるまで</title>
+<meta name="description" content="食べたものがATPになるまでと、入ってきたものが体から出ていくまでを、経路図をたどりながら学ぶブラウザゲーム2本と用語図鑑。">
+
+<!-- ▼ OGP：GitHub Pages のリポジトリ名を karada-factory 以外にする場合は、
+     下の3か所の URL を実際の公開URLに書き換えてください ▼ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="からだの工場 — 食べたものが、エネルギーになるまで">
+<meta property="og:description" content="代謝と解毒を、経路図をたどりながら学ぶブラウザゲーム。食材を選ぶとATPが計算され、詰まっている経路は粒が小さく遅くなります。">
+<meta property="og:url" content="https://fiyoko510.github.io/karada-factory/">
+<meta property="og:image" content="https://fiyoko510.github.io/karada-factory/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="からだの工場 — 食べたものが、エネルギーになるまで">
+<meta name="twitter:description" content="代謝と解毒を、経路図をたどりながら学ぶブラウザゲーム。ブラウザですぐ遊べます。">
+<meta name="twitter:image" content="https://fiyoko510.github.io/karada-factory/ogp.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#170E1F;--cream:#F3E9DE;--dim:#B7A6B3;--line:rgba(243,233,222,.16);--gold:#F2B705;--plum:#8E4A86;--blood:#A8515F;--paper:#D8CFBE}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:radial-gradient(120% 80% at 72% -10%,#3A2148 0%,rgba(58,33,72,0) 58%),radial-gradient(90% 60% at 0% 110%,#2A2231 0%,rgba(42,34,49,0) 55%),var(--ink);
+  color:var(--cream);font-family:"Zen Kaku Gothic New",-apple-system,"Hiragino Sans",sans-serif;font-size:15px;line-height:1.8;min-height:100dvh;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:44px 18px 70px}
+h1,h2,h3{font-family:"Shippori Mincho B1","Hiragino Mincho ProN",serif;font-weight:800;margin:0;letter-spacing:.02em}
+.eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.24em;color:var(--plum)}
+header{text-align:center;padding-bottom:30px;border-bottom:1px solid var(--line)}
+header h1{font-size:31px;line-height:1.35;margin-top:8px}
+header .sub{color:var(--dim);font-size:14px;margin-top:12px;max-width:32em;margin-left:auto;margin-right:auto}
+.cards{display:grid;gap:14px;margin-top:28px}
+.card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+  background:linear-gradient(180deg,rgba(46,27,60,.6),rgba(36,21,51,.6));transition:border-color .2s,transform .12s}
+.card:hover{border-color:var(--plum);transform:translateY(-2px)}
+.card .no{font-family:"DM Mono",monospace;font-size:11px;color:var(--plum);letter-spacing:.16em}
+.card h2{font-size:21px;margin-top:4px}
+.card p{margin:8px 0 0;font-size:13.5px;color:var(--dim)}
+.card .go{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:var(--gold)}
+.card.liver:hover{border-color:var(--blood)}.card.liver .no{color:var(--blood)}
+.card.book{background:linear-gradient(180deg,rgba(216,207,190,.14),rgba(216,207,190,.06))}
+.card.book:hover{border-color:var(--paper)}.card.book .no{color:var(--paper)}
+.how{margin-top:34px;border-top:1px solid var(--line);padding-top:22px}
+.how h3{font-size:16px;margin-bottom:8px}
+.how ol{margin:0;padding-left:1.3em;color:var(--dim);font-size:13.5px}
+.how li{margin-bottom:6px}
+footer{margin-top:34px;border-top:1px solid var(--line);padding-top:16px;font-size:11.5px;color:var(--dim);line-height:1.8}
+@media(max-width:560px){.wrap{padding:30px 14px 60px}header h1{font-size:23px}.card h2{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">a browser lab about your body</p>
+  <h1>からだの工場</h1>
+  <p class="sub">食べたものがエネルギーに変わるまでと、入ってきたものが体から出ていくまで。経路図をたどりながら、実際の生化学の収支で遊べるブラウザゲームです。インストール不要、スマホでも動きます。</p>
+</header>
+
+<div class="cards">
+  <a class="card" href="mitochondria-kitchen.html">
+    <span class="no">01 — ENERGY</span>
+    <h2>ミトコンドリア厨房</h2>
+    <p>一食ぶんの献立を組むと、そこから取り出せるATPが計算されます。カロリーが高いほど高得点、ではありません。ビタミンB1が足りないと糖はミトコンドリアに入れず、乳酸に流れて行き止まりになります。</p>
+    <span class="go">遊ぶ →</span>
+  </a>
+  <a class="card liver" href="liver-workshop.html">
+    <span class="no">02 — DETOX</span>
+    <h2>肝臓の解毒工場</h2>
+    <p>コーヒーも、薬も、お酒も、保存料も、自分のホルモンも、肝臓では同じ1本のラインを共有しています。第1相・第2相・排出をたどると、何が本当に負担なのかが数字で見えます。</p>
+    <span class="go">遊ぶ →</span>
+  </a>
+  <a class="card book" href="metabolism-glossary.html">
+    <span class="no">03 — GLOSSARY</span>
+    <h2>用語図鑑</h2>
+    <p>解糖系って腸で起きてるの？ パントテン酸って何？ 体の地図・経路の分子式・栄養素キャラクター13体・ミニ辞典。ゲーム中の用語をタップしても、同じ解説が出ます。</p>
+    <span class="go">読む →</span>
+  </a>
+</div>
+
+<div class="how">
+  <h3>遊びかた（1分）</h3>
+  <ol>
+    <li>場面を選ぶ（朝ごはん、駅までダッシュ、飲み会の夜…）</li>
+    <li>枠のなかで食材を選んで、献立を組む</li>
+    <li>代謝スタート。経路図を粒が流れていく。詰まっているところは粒が小さく、遅くなる</li>
+    <li>結果を見て、1品だけ入れ替えて、もう一度</li>
+  </ol>
+</div>
+
+<footer>
+  数値と反応式は学習用に簡略化しています。ATPの収支や栄養素の必要量は一般的な推定値で、条件によって変わります。健康状態や薬に関する判断は、必ず医療者にご相談ください。<br>
+  Made with Claude.
+</footer>
+
+</div>
+</body>
+</html>

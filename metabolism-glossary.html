@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="体の地図・経路の分子式・栄養素キャラクター13体・ミニ用語辞典。解糖系って腸で起きてるの？ に答える副読本です。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="からだの工場 用語図鑑">
+<meta property="og:description" content="体の地図・経路の分子式・栄養素キャラクター13体・ミニ用語辞典。解糖系って腸で起きてるの？ に答える副読本です。">
+<meta property="og:url" content="https://fiyoko510.github.io/karada-factory/metabolism-glossary.html">
+<meta property="og:image" content="https://fiyoko510.github.io/karada-factory/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="からだの工場 用語図鑑">
+<meta name="twitter:description" content="体の地図・経路の分子式・栄養素キャラクター13体・ミニ用語辞典。解糖系って腸で起きてるの？ に答える副読本です。">
+<meta name="twitter:image" content="https://fiyoko510.github.io/karada-factory/ogp.png">
+<title>からだの工場 用語図鑑 — ミトコンドリア厨房 / 肝臓の解毒工場 副読本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F0E4;
+  --paper2:#FBF7EF;
+  --sumi:#221D18;
+  --sumi2:#5B524A;
+  --sumi3:#8D8378;
+  --rule:#D8CFBE;
+  --seal:#B4453A;
+  --gold:#B98A1E;
+  --r:12px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:
+    radial-gradient(120% 70% at 80% -10%, #FBF7EF 0%, rgba(251,247,239,0) 60%),
+    var(--paper);
+  color:var(--sumi);
+  font-family:"Zen Kaku Gothic New",-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;
+  font-size:15px;line-height:1.85;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:22px 16px 80px}
+h1,h2,h3,h4,.disp{font-family:"Shippori Mincho B1","Hiragino Mincho ProN",serif;font-weight:800;margin:0;letter-spacing:.02em}
+.mono{font-family:"DM Mono",ui-monospace,monospace}
+.eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.24em;color:var(--seal);text-transform:uppercase}
+
+/* header */
+header{border-bottom:2px solid var(--sumi);padding-bottom:16px;margin-bottom:8px;position:relative}
+header h1{font-size:27px;line-height:1.3;margin-top:4px}
+header p{margin:6px 0 0;color:var(--sumi2);font-size:13px}
+.seal{position:absolute;top:0;right:0;width:56px;height:56px;border:2px solid var(--seal);border-radius:8px;
+  display:grid;place-items:center;color:var(--seal);font-family:"Shippori Mincho B1",serif;font-size:11px;line-height:1.25;text-align:center;transform:rotate(3deg);opacity:.9}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(246,240,228,.94);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule);margin:0 -16px 22px;padding:9px 16px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:0 0 auto;font-size:12.5px;text-decoration:none;color:var(--sumi2);border:1px solid var(--rule);
+  border-radius:99px;padding:5px 12px;background:var(--paper2);white-space:nowrap}
+nav a:hover{border-color:var(--sumi);color:var(--sumi)}
+
+section{margin-bottom:44px;scroll-margin-top:60px}
+.sechead{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.sechead h2{font-size:20px}
+.sechead .n{font-family:"DM Mono",monospace;font-size:12px;color:var(--seal)}
+.lead{color:var(--sumi2);font-size:14px;margin:6px 0 18px;max-width:44em}
+
+/* body map */
+.map{background:var(--paper2);border:1px solid var(--rule);border-radius:var(--r);padding:8px 4px 4px;overflow:hidden}
+svg{display:block;width:100%;height:auto}
+.mapbox{fill:#fff;stroke:var(--sumi);stroke-width:1.3}
+.mapbox.organ{fill:#F3E7D2}
+.mapbox.cell{fill:#E7F0E8}
+.mapbox.mito{fill:#F0E4EE}
+.maptxt{font-family:"Shippori Mincho B1",serif;font-size:12.5px;fill:var(--sumi);text-anchor:middle;dominant-baseline:middle;font-weight:600}
+.mapsub{font-family:"DM Mono",monospace;font-size:9px;fill:var(--sumi3);text-anchor:middle;dominant-baseline:middle}
+.maparrow{stroke:var(--sumi);stroke-width:1.3;fill:none;marker-end:url(#ah)}
+.mapdash{stroke:var(--sumi3);stroke-width:1.1;fill:none;stroke-dasharray:4 4;marker-end:url(#ah2)}
+.tagline{font-family:"Zen Kaku Gothic New",sans-serif;font-size:10.5px;fill:var(--seal);text-anchor:middle}
+.maplabel{font-family:"Shippori Mincho B1",serif;font-size:11px;fill:var(--sumi3);letter-spacing:.12em}
+.mapnote{font-size:12.5px;color:var(--sumi2);margin-top:12px;padding-left:14px;border-left:2px solid var(--seal)}
+
+/* pathway cards */
+.paths{display:grid;gap:12px}
+.path{background:var(--paper2);border:1px solid var(--rule);border-radius:var(--r);padding:14px 16px}
+.path .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.path h3{font-size:17px}
+.path .yomi{font-size:11.5px;color:var(--sumi3);font-family:"DM Mono",monospace}
+.path .where{margin-left:auto;font-size:11.5px;background:#EDE3D1;border-radius:99px;padding:3px 10px;color:var(--sumi2);white-space:nowrap}
+.path .one{margin:8px 0 0;font-family:"Shippori Mincho B1",serif;font-size:15px;line-height:1.6}
+.path .eq{margin-top:10px;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:9px 11px;
+  font-family:"DM Mono",monospace;font-size:12px;line-height:1.9;overflow-x:auto;white-space:nowrap;color:var(--sumi)}
+.path .eq b{color:var(--seal);font-weight:400}
+.path .eq em{color:var(--gold);font-style:normal}
+.path .detail{margin-top:9px;font-size:13px;color:var(--sumi2)}
+.path .ingame{margin-top:8px;font-size:12px;color:var(--sumi3);border-top:1px dashed var(--rule);padding-top:7px}
+.path .ingame b{color:var(--sumi2);font-weight:700}
+
+/* character cards */
+.chars{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:14px}
+.char{background:var(--paper2);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.char .head{display:flex;gap:12px;align-items:center;padding:14px 14px 10px}
+.char .figure{width:96px;height:96px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;overflow:hidden}
+.char .figure.featured{background:radial-gradient(circle at 50% 32%,#fffdf8 0%,var(--art-tint) 66%,#fff 100%)!important}
+.char .figure .featured-art{width:112px;height:112px;object-fit:contain;display:block;transform:translateY(7px)}
+.char .names h3{font-size:17px;line-height:1.3}
+.char .names .yomi{font-family:"DM Mono",monospace;font-size:10.5px;color:var(--sumi3);letter-spacing:.06em}
+.char .names .alias{font-size:11.5px;color:var(--sumi2);margin-top:2px}
+.char .copy{margin:0 14px;padding:10px 12px;border-radius:8px;background:#fff;border:1px solid var(--rule);
+  font-family:"Shippori Mincho B1",serif;font-size:14.5px;line-height:1.6}
+.char dl{margin:10px 14px 14px;display:grid;grid-template-columns:5.2em 1fr;gap:4px 10px;font-size:12.5px}
+.char dt{color:var(--sumi3);font-size:11.5px;padding-top:2px}
+.char dd{margin:0;color:var(--sumi2)}
+.char dd b{color:var(--sumi);font-weight:700}
+.char .bar{height:4px}
+
+/* mini dictionary */
+.dict{display:grid;gap:0;border-top:1px solid var(--rule)}
+.dict .row{display:grid;grid-template-columns:9.5em 1fr;gap:14px;padding:11px 2px;border-bottom:1px solid var(--rule);font-size:13.5px}
+.dict .row .t{font-family:"Shippori Mincho B1",serif;font-weight:600}
+.dict .row .t small{display:block;font-family:"DM Mono",monospace;font-size:10px;color:var(--sumi3);font-weight:400;letter-spacing:.04em}
+.dict .row .d{color:var(--sumi2)}
+
+/* summary */
+.summary{background:var(--sumi);color:var(--paper);border-radius:var(--r);padding:20px 20px 16px}
+.summary h2{color:#fff;font-size:19px}
+.summary ol{margin:12px 0 0;padding-left:1.2em}
+.summary li{margin-bottom:9px;font-size:14px;line-height:1.75}
+.summary li b{color:#F0C651}
+
+.backlinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.backlinks a{text-decoration:none;font-size:13px;font-weight:700;border-radius:99px;padding:9px 18px;border:1px solid var(--sumi);color:var(--sumi);background:var(--paper2)}
+.backlinks a:hover{background:var(--sumi);color:var(--paper)}
+footer{margin-top:36px;border-top:1px solid var(--rule);padding-top:14px;font-size:11.5px;color:var(--sumi3)}
+
+@media (max-width:560px){
+  .wrap{padding:18px 12px 70px}
+  header h1{font-size:21px}
+  .seal{width:46px;height:46px;font-size:9.5px}
+  .sechead h2{font-size:17px}
+  .chars{grid-template-columns:1fr}
+  .path .where{margin-left:0}
+  .char dl{grid-template-columns:4.6em 1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">companion book</p>
+  <h1>からだの工場 用語図鑑</h1>
+  <p>『ミトコンドリア厨房』『肝臓の解毒工場』副読本 — 用語と、その反応が体のどこで起きているか</p>
+  <div class="seal">用語<br>図鑑</div>
+</header>
+
+<nav>
+  <a href="#map">① からだの地図</a>
+  <a href="#paths">② 経路の図鑑</a>
+  <a href="#chars">③ 栄養素キャラクター</a>
+  <a href="#dict">④ ミニ用語辞典</a>
+  <a href="#summary">⑤ 一枚まとめ</a>
+</nav>
+
+<!-- ===================== 1. からだの地図 ===================== -->
+<section id="map">
+  <div class="sechead"><span class="n">01</span><h2>その反応は、体のどこで起きているのか</h2></div>
+  <p class="lead">「解糖系は腸で起きるの？」という疑問はとても自然です。答えは<b>いいえ</b>。腸がやっているのは<b>分解して吸収するところまで</b>で、エネルギーを取り出す反応は、そのあと全身の細胞の中で起きています。順番に追うとこうなります。</p>
+
+  <div class="map">
+    <svg viewBox="0 0 760 380" role="img" aria-label="消化から代謝までの体内の流れ">
+      <defs>
+        <marker id="ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <path d="M0 0 L7 3.5 L0 7 z" fill="#221D18"/></marker>
+        <marker id="ah2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <path d="M0 0 L7 3.5 L0 7 z" fill="#8D8378"/></marker>
+      </defs>
+
+      <text class="maplabel" x="16" y="22">消 化 管</text>
+      <text class="maplabel" x="16" y="196">血 流 ・ 肝 臓</text>
+      <text class="maplabel" x="16" y="300">全 身 の 細 胞</text>
+
+      <!-- 消化管 -->
+      <rect class="mapbox organ" x="16" y="36" width="104" height="46" rx="10"/>
+      <text class="maptxt" x="68" y="52">口・胃</text><text class="mapsub" x="68" y="70">かみ砕く</text>
+      <path class="maparrow" d="M124 59 H 168"/>
+      <rect class="mapbox organ" x="172" y="36" width="150" height="46" rx="10"/>
+      <text class="maptxt" x="247" y="52">小腸</text><text class="mapsub" x="247" y="70">分解 → 吸収</text>
+      <text class="tagline" x="247" y="100">ここまでが「消化」</text>
+
+      <!-- 分解物 -->
+      <path class="maparrow" d="M326 59 H 372"/>
+      <rect class="mapbox" x="376" y="26" width="150" height="30" rx="8"/>
+      <text class="mapsub" x="451" y="41" style="font-size:10.5px">デンプン → ブドウ糖</text>
+      <rect class="mapbox" x="376" y="60" width="150" height="30" rx="8"/>
+      <text class="mapsub" x="451" y="75" style="font-size:10.5px">たんぱく質 → アミノ酸</text>
+      <rect class="mapbox" x="376" y="94" width="150" height="30" rx="8"/>
+      <text class="mapsub" x="451" y="109" style="font-size:10.5px">脂肪 → 脂肪酸</text>
+
+      <!-- 門脈→肝臓 -->
+      <path class="maparrow" d="M530 45 C 580 45, 590 120, 606 150"/>
+      <path class="maparrow" d="M530 75 C 580 80, 592 122, 606 150"/>
+      <text class="tagline" x="600" y="92">門脈</text>
+      <rect class="mapbox organ" x="556" y="156" width="188" height="52" rx="10"/>
+      <text class="maptxt" x="650" y="174">肝臓</text><text class="mapsub" x="650" y="192">第1相・第2相はここ</text>
+
+      <!-- 脂肪はリンパ経由 -->
+      <path class="mapdash" d="M530 109 C 560 130, 470 150, 300 156"/>
+      <text class="tagline" x="410" y="140">脂肪だけリンパ管を通り、肝臓を素通りして血流へ</text>
+
+      <!-- 血流 -->
+      <rect class="mapbox" x="16" y="156" width="270" height="52" rx="10"/>
+      <text class="maptxt" x="151" y="174">血流にのって全身へ</text><text class="mapsub" x="151" y="192">ブドウ糖・アミノ酸・脂肪酸</text>
+      <path class="maparrow" d="M556 182 H 292"/>
+      <path class="maparrow" d="M151 212 V 250"/>
+
+      <!-- 細胞 -->
+      <rect class="mapbox cell" x="16" y="254" width="440" height="110" rx="14"/>
+      <text class="maptxt" x="90" y="276" style="font-size:12px">細胞質</text>
+      <text class="mapsub" x="94" y="294" style="font-size:10px">cytosol</text>
+      <rect class="mapbox" x="150" y="264" width="120" height="38" rx="8"/>
+      <text class="maptxt" x="210" y="283" style="font-size:12px">解糖系</text>
+
+      <rect class="mapbox mito" x="150" y="312" width="292" height="44" rx="10"/>
+      <text class="maptxt" x="196" y="334" style="font-size:11.5px">ミトコンドリア</text>
+      <rect class="mapbox" x="252" y="318" width="86" height="32" rx="7"/>
+      <text class="maptxt" x="295" y="334" style="font-size:11px">TCA回路</text>
+      <rect class="mapbox" x="344" y="318" width="92" height="32" rx="7"/>
+      <text class="maptxt" x="390" y="334" style="font-size:11px">電子伝達系</text>
+      <path class="maparrow" d="M210 306 V 314"/>
+
+      <!-- 排出 -->
+      <rect class="mapbox organ" x="556" y="254" width="188" height="46" rx="10"/>
+      <text class="maptxt" x="650" y="270">胆汁 → 腸 → 便</text><text class="mapsub" x="650" y="288">大きい分子はこちら</text>
+      <rect class="mapbox organ" x="556" y="310" width="188" height="46" rx="10"/>
+      <text class="maptxt" x="650" y="326">腎臓 → 尿</text><text class="mapsub" x="650" y="344">水に溶ける分子はこちら</text>
+      <path class="maparrow" d="M650 212 V 250"/>
+      <path class="maparrow" d="M700 212 C 730 230, 730 290, 700 306"/>
+    </svg>
+  </div>
+
+  <p class="mapnote"><b>覚えておくと効くこと。</b>解糖系は細胞の「中身の部分（細胞質）」で、TCA回路と電子伝達系は「その中にあるミトコンドリアの内側」で起きています。だから糖はまず細胞質でピルビン酸まで分解され、そこからミトコンドリアの扉をくぐる。ゲームで「ビタミンB1がないと乳酸に流れる」のは、まさにこの扉のところです。</p>
+  <p class="mapnote">もうひとつ。<b>脂肪だけは肝臓を通りません。</b>糖とアミノ酸は門脈という専用の血管でいったん肝臓に集められますが、脂肪はリンパ管を通って首元の静脈から血流に合流します。肝臓のチェックを受けずに全身に回る、唯一の栄養素です。</p>
+</section>
+
+<!-- ===================== 2. 経路の図鑑 ===================== -->
+<section id="paths">
+  <div class="sechead"><span class="n">02</span><h2>経路の図鑑</h2></div>
+  <p class="lead">式は覚えなくて大丈夫です。「何が入って、何が出るか」だけ眺めてください。<span class="mono" style="color:var(--seal)">赤</span>が入るもの、<span class="mono" style="color:var(--gold)">黄</span>が生まれるものです。</p>
+  <div class="paths" id="pathlist"></div>
+</section>
+
+<!-- ===================== 3. キャラクター ===================== -->
+<section id="chars">
+  <div class="sechead"><span class="n">03</span><h2>栄養素キャラクター図鑑</h2></div>
+  <p class="lead">経路を動かしているのは、酵素とその助手たちです。ゲームで「充足率」として出てくる面々を、仕事ごとに紹介します。</p>
+  <div class="chars" id="charlist"></div>
+</section>
+
+<!-- ===================== 4. ミニ辞典 ===================== -->
+<section id="dict">
+  <div class="sechead"><span class="n">04</span><h2>ミニ用語辞典</h2></div>
+  <p class="lead">ゲーム中に出てくる、それ以外の言葉です。</p>
+  <div class="dict" id="dictlist"></div>
+</section>
+
+<!-- ===================== 5. まとめ ===================== -->
+<section id="summary">
+  <div class="summary">
+    <h2>一枚にまとめると</h2>
+    <ol>
+      <li>腸がやるのは<b>分解と吸収まで</b>。エネルギーを取り出すのは全身の細胞、その中のミトコンドリア。</li>
+      <li>食べたぶんのATPが全部手に入るわけではない。<b>経路を動かす道具（ビタミンB群・鉄・マグネシウム）</b>が足りないと、途中で細くなる。</li>
+      <li>肝臓には<b>添加物専用のラインはない</b>。ホルモンも老廃物もコーヒーも薬も、同じ1本のラインを共有している。</li>
+      <li>第1相は解毒ではなく<b>下ごしらえ</b>。ここでむしろ危険な中間体になり、第2相で材料をくっつけて初めて無害になる。</li>
+      <li>だから怖いのは「入ってきた量」より、<b>第1相だけ速くて第2相の材料が切れている状態</b>。お酒・たばこはこれを起こす。</li>
+    </ol>
+  </div>
+  <div class="backlinks">
+    <a href="index.html">← 入口へ</a>
+    <a href="mitochondria-kitchen.html">← ミトコンドリア厨房へ</a>
+    <a href="liver-workshop.html">← 肝臓の解毒工場へ</a>
+  </div>
+  <footer>
+    数値と式は、学習用に簡略化しています。ATPの収支（グルコース1分子あたり約30〜32ATP）は一般的な推定値で、細胞や条件によって変わります。栄養素の働きは主要なものだけを挙げており、実際にはどれも複数の役割を持っています。体調や薬に関する判断は、必ず医療者にご相談ください。
+  </footer>
+</section>
+
+</div>
+
+<script>
+"use strict";
+
+/* ========== 経路データ ========== */
+const PATHS = [
+ {nm:'解糖系', yomi:'かいとうけい / glycolysis', where:'細胞質（細胞の中身の部分）',
+  one:'ブドウ糖を半分に割って、ピルビン酸を2つ作る。',
+  eq:'<b>C₆H₁₂O₆</b>（ブドウ糖）＋ 2<b>NAD⁺</b> ＋ 2<b>ADP</b> ＋ 2<b>Pi</b><br>　→ 2<em>C₃H₄O₃</em>（ピルビン酸）＋ 2<em>NADH</em> ＋ 2<em>ATP</em> ＋ 2H₂O',
+  detail:'10段階の反応の集合体です。酸素がなくても進むのが最大の特徴で、全力疾走中に頼りになるのはここだけ。ただし取れるATPはたった2個で、あとで取り出す30個弱に比べると微々たるものです。',
+  ingame:'厨房での表示：<b>解糖系</b>。マグネシウムとナイアシンが足りないと細くなる。'},
+
+ {nm:'ピルビン酸脱水素酵素', yomi:'PDH / pyruvate dehydrogenase', where:'ミトコンドリアの中（基質）',
+  one:'ミトコンドリアの入口。ここを通れないと、糖は行き止まり。',
+  eq:'<b>ピルビン酸</b> ＋ <b>CoA-SH</b> ＋ <b>NAD⁺</b><br>　→ <em>アセチルCoA</em> ＋ <em>CO₂</em> ＋ <em>NADH</em>',
+  detail:'ビタミンB1がこの酵素の必須部品です。B1が足りないと入口が詰まり、行き場を失ったピルビン酸は乳酸に変わります。乳酸は行き止まりなので、そこからATPは増えません。「糖質はたっぷり食べたのに疲れる」の正体がこれです。',
+  ingame:'厨房での表示：<b>ピルビン酸の分かれ道</b>。B1不足で乳酸ルートへ流れる。'},
+
+ {nm:'TCA回路', yomi:'ティーシーエーかいろ / 別名 クエン酸回路', where:'ミトコンドリアの中（基質）',
+  one:'アセチルCoAを回して、電子を運ぶ「電池」を集める。',
+  eq:'<b>アセチルCoA</b> ＋ 3<b>NAD⁺</b> ＋ <b>FAD</b> ＋ <b>GDP</b> ＋ <b>Pi</b> ＋ 2H₂O<br>　→ 2<em>CO₂</em> ＋ 3<em>NADH</em> ＋ <em>FADH₂</em> ＋ <em>GTP</em> ＋ CoA-SH',
+  detail:'名前の由来は tricarboxylic acid（トリカルボン酸）の頭文字です。最初にできるクエン酸がカルボキシ基を3つ持つことから。ぐるりと8段階回って元の物質に戻るので「回路」と呼ばれます。ここで直接できるATPは1個だけ。本命はNADHとFADH₂という電池のほうです。<br>ちなみに、吐く息の二酸化炭素はここで生まれています。',
+  ingame:'厨房での表示：<b>TCA回路</b>。B1・B2・B3・B5・マグネシウムを全部使う。'},
+
+ {nm:'電子伝達系', yomi:'でんしでんたつけい / ETC', where:'ミトコンドリア内膜（ひだの部分＝クリステ）',
+  one:'電池から電子を取り出し、酸素に渡してATPを大量生産する。',
+  eq:'<b>NADH</b> ＋ H⁺ ＋ ½<b>O₂</b> → NAD⁺ ＋ H₂O ＋ <em>約2.5 ATP</em><br><b>FADH₂</b> ＋ ½<b>O₂</b> → FAD ＋ H₂O ＋ <em>約1.5 ATP</em><br>全体：C₆H₁₂O₆ ＋ 6O₂ → 6CO₂ ＋ 6H₂O ＋ <em>約30〜32 ATP</em>',
+  detail:'呼吸で吸った酸素が最終的に使われるのは、この一段だけです。ここで酸素は電子を受け取って水になります。飲んだ水ではなく、呼吸から生まれる水です。<br>全ATPの約9割がここで生まれるので、酸素が足りないとATPは激減します。',
+  ingame:'厨房での表示：<b>電子伝達系</b>。鉄とB2が必要。酸素の上限がステージごとに違う。'},
+
+ {nm:'β酸化', yomi:'ベータさんか / beta-oxidation', where:'ミトコンドリアの中（基質）',
+  one:'脂肪酸を端から2炭素ずつ切り落として、アセチルCoAにする。',
+  eq:'パルミチン酸 <b>C₁₆H₃₂O₂</b>（7回切る）<br>　→ 8<em>アセチルCoA</em> ＋ 7<em>NADH</em> ＋ 7<em>FADH₂</em>（−2ATPの着火料）',
+  detail:'脂質1gから取れるATPは糖質の約2.3倍。ただし始めるのに2ATPの「着火料」がかかり、そのうえ酸素をたくさん要求します。だから全力疾走中には使いにくく、ゆっくり走っているときに主役になります。',
+  ingame:'厨房での表示：<b>β酸化</b>。B2（FAD）とB5（CoA）が必要。'},
+
+ {nm:'第1相反応', yomi:'だいいっそう / Phase I', where:'肝細胞の滑面小胞体（細胞内の膜の折りたたみ）',
+  one:'異物に酸素をくっつけて、次の工程で扱える形にする下ごしらえ。',
+  eq:'<b>R-H</b>（異物）＋ <b>O₂</b> ＋ <b>NADPH</b> ＋ H⁺<br>　→ <em>R-OH</em> ＋ H₂O ＋ NADP⁺　　［CYP450］',
+  detail:'ここが誤解されやすいところ。第1相は「解毒」ではありません。むしろ元より反応性の高い中間体になることがあり、一時的に毒性が上がります。お酒のアセトアルデヒドがその代表です。<br>CYP450（シップ450）という酵素の一族が担当していて、お酒やたばこはこの酵素を増やします（＝誘導）。第1相だけ速くなると、中間体が渋滞します。',
+  ingame:'工場での表示：<b>第1相 CYP</b>。B群と鉄が必要。飲酒・喫煙で加速する。'},
+
+ {nm:'第2相反応', yomi:'だいにそう / Phase II（抱合）', where:'肝細胞の細胞質',
+  one:'水に溶ける「取っ手」をくっつけて、捨てられる形にする。',
+  eq:'グルクロン酸抱合：R-OH ＋ <b>UDP-グルクロン酸</b> → <em>R-グルクロニド</em><br>グルタチオン抱合：R-X ＋ <b>GSH</b> → <em>R-SG</em> ＋ HX<br>グリシン抱合：安息香酸 ＋ <b>グリシン</b> → <em>馬尿酸</em> ＋ H₂O',
+  detail:'この「取っ手」が消耗品です。食事から作られ、使えば減ります。ゲームでグルクロン酸・硫酸基・グルタチオン・グリシンの充足率が出るのはこのためです。<br>3つめの式は、清涼飲料の保存料（安息香酸ナトリウム）が体内で馬尿酸に変わって尿に出るまでの実際の反応です。「馬尿酸」の名は、馬の尿から最初に見つかったことに由来します。',
+  ingame:'工場での表示：<b>第2相 抱合</b>。4つの材料の一番細いところで決まる。'},
+
+ {nm:'第3相（排出）', yomi:'だいさんそう / Phase III', where:'肝細胞の膜のポンプ → 胆汁・腎臓',
+  one:'ATPを使って、外へ押し出す。',
+  eq:'抱合体 ＋ <b>ATP</b> →（トランスポーター）→ 胆汁 or 尿<br><em>水に溶けやすい小さい分子は尿へ／大きい分子は胆汁へ</em>',
+  detail:'ここで初めて体の外に出ます。捨てるのにもエネルギーが要る、というのが見落とされがちな点です。<br>胆汁に出したものは腸に届きますが、食物繊維が足りないと腸から再吸収されて肝臓に戻ってきます（腸肝循環）。食物繊維は、この戻りを断ち切る役です。',
+  ingame:'工場での表示：<b>第3相 排出</b>。食物繊維と水分で決まる。'}
+];
+
+/* ========== キャラクターデータ ========== */
+const CHARS = [
+ {id:'b1', nm:'ビタミンB1', yomi:'THIAMINE', alias:'チアミン', color:'#D4483A', prop:'key',
+  copy:'この鍵がなければ、糖はミトコンドリアの門をくぐれない。',
+  job:'ピルビン酸をアセチルCoAに変える酵素の部品。TCA回路でも同じ役をする',
+  home:'豚肉（断トツ）、玄米、うなぎ、大豆',
+  lost:'糖が乳酸に流れて行き止まりになる。だるさ、集中力の低下',
+  note:'白米を精米するときに削られる部分に多い。玄米と白米の差はほぼこれ'},
+
+ {id:'b2', nm:'ビタミンB2', yomi:'RIBOFLAVIN', alias:'リボフラビン（FAD）',color:'#E0A02C', prop:'twin',
+  copy:'四つの現場すべてに顔を出す、地味な常連。',
+  job:'FADという形で電子を運ぶ。β酸化・TCA回路・電子伝達系・肝臓の第2相と、出番が多い',
+  home:'レバー、卵、納豆、牛乳、きのこ',
+  lost:'脂質が燃やしきれない。口角炎や肌荒れ',
+  note:'黄色い色素そのもの。サプリを飲むと尿が濃い黄色になるのはこの子の色'},
+
+ {id:'b3', nm:'ナイアシン', yomi:'NIACIN / NAD', alias:'ビタミンB3',color:'#4A9B63', prop:'bucket',
+  copy:'電子の運び屋。全経路に顔が利く。',
+  job:'NADという形で、あらゆる反応から電子を受け取って電子伝達系まで運ぶ',
+  home:'鶏むね肉、かつお、さば、きのこ',
+  lost:'全経路がいっせいに細くなる',
+  note:'体内でトリプトファン（アミノ酸）から作れる唯一のビタミン。ゲームでたんぱく質を食べるとナイアシンが増えるのはこのため'},
+
+ {id:'b5', nm:'パントテン酸', yomi:'PANTOTHENIC ACID', alias:'ビタミンB5（CoA）',color:'#5F86CC', prop:'cart',
+  copy:'名前からして「どこにでもいる」。',
+  job:'補酵素A（CoA）の材料。アセチルCoAの「CoA」はこの子。荷台として物質を運ぶ',
+  home:'レバー、卵、納豆、さつまいも、アボカド',
+  lost:'アセチルCoAが作れず、糖も脂も入口で止まる',
+  note:'語源はギリシャ語の pantothen（至るところから）。実際どんな食品にも少しずつ入っていて、不足はまれ'},
+
+ {id:'b6', nm:'ビタミンB6', yomi:'PYRIDOXINE', alias:'ピリドキシン',color:'#9758AD', prop:'talk',
+  copy:'アミノ酸の通訳。',
+  job:'アミノ基を付け替えて、たんぱく質をエネルギー源や別のアミノ酸に組み替える',
+  home:'バナナ、まぐろ、鶏肉、にんにく',
+  lost:'たんぱく質を燃料として使えない。肝臓では第2相が渋る',
+  note:'たんぱく質をたくさん食べる人ほど、必要量も増える'},
+
+ {id:'fe', nm:'鉄', yomi:'IRON / Fe', alias:'ヘム鉄・非ヘム鉄',color:'#8A5636', prop:'plug',
+  copy:'最後の一段は、鉄がなければ終わらない。',
+  job:'電子伝達系の複合体の中心。電子を酸素まで受け渡すバケツリレーの担い手',
+  home:'レバー、赤身肉、あさり、ほうれん草',
+  lost:'ATPの約9割を生む最終段が止まる。息切れ、めまい',
+  note:'肉や魚のヘム鉄は吸収率が高く、野菜の非ヘム鉄は低い。ビタミンCと一緒だと吸収が上がる'},
+
+ {id:'mg', nm:'マグネシウム', yomi:'MAGNESIUM / Mg', alias:'ATPの相棒',color:'#3B9DA2', prop:'hands',
+  copy:'ATPは、ひとりでは働けない。',
+  job:'ATPと結合して初めて酵素が使える形になる。300種類以上の酵素の必需品',
+  home:'玄米、アーモンド、豆腐、海藻、ほうれん草',
+  lost:'解糖系の最初の一歩から進まない。こむら返り',
+  note:'精製した食品では大きく減る。白米より玄米に10倍近く入っている'},
+
+ {id:'gsh', nm:'グルタチオン', yomi:'GLUTATHIONE / GSH', alias:'体内最強の用心棒',color:'#2E7D5B', prop:'shield',
+  copy:'使うたびに減る盾。切らした日が、いちばん危ない。',
+  job:'第1相でできた反応性中間体に体当たりして無害化する。肝臓の最後の砦',
+  home:'（体内で作る）材料は卵・肉・魚のシステイン、アブラナ科の野菜が合成を後押しする',
+  lost:'中間体が肝細胞に手を出す。解熱鎮痛薬とお酒が重なった日に致命的',
+  note:'グルタミン酸・システイン・グリシンの3つがつながった小さな分子。ボトルネックはたいていシステイン'},
+
+ {id:'glu', nm:'グルクロン酸', yomi:'GLUCURONIC ACID', alias:'第2相の主力',color:'#C2803A', prop:'tag',
+  copy:'捨てるものに、宛名を書く。',
+  job:'異物にくっついて水に溶ける形にする。第2相でもっとも使われる材料',
+  home:'糖から作られる。極端な糖質制限では材料が細くなる',
+  lost:'薬や添加物が排出待ちで渋滞する',
+  note:'ビリルビン（古い赤血球の燃えかす）もこれで処理される。新生児の黄疸は、この酵素がまだ育っていないため'},
+
+ {id:'sul', nm:'硫酸基', yomi:'SULFATE', alias:'速いが品切れしやすい',color:'#C9A72F', prop:'flag',
+  copy:'いちばん速い。そして、いちばん先に尽きる。',
+  job:'少量の異物を素早く処理する。量が増えるとすぐ在庫切れになり、グルクロン酸に交代する',
+  home:'含硫アミノ酸（卵、肉、魚）、にんにく、玉ねぎ、アブラナ科',
+  lost:'処理が遅いルートに回り、全体が詰まる',
+  note:'解熱鎮痛薬は少量なら硫酸基が、量が増えるとグルクロン酸が主に処理する'},
+
+ {id:'gly', nm:'グリシン', yomi:'GLYCINE', alias:'いちばん小さいアミノ酸',color:'#6E7C89', prop:'bean',
+  copy:'いちばん小さいものが、いちばん働く。',
+  job:'安息香酸などにくっついて馬尿酸に変え、尿へ送り出す。グルタチオンの材料でもある',
+  home:'鶏皮、ゼラチン、骨つき肉のスープ、魚',
+  lost:'保存料などの処理が滞る',
+  note:'コラーゲンの3分の1はグリシン。煮込んだスープが良い供給源になる'},
+
+ {id:'atp', nm:'ATP', yomi:'ADENOSINE TRIPHOSPHATE', alias:'アデノシン三リン酸',color:'#C9971C', prop:'coin',
+  copy:'体の通貨。ためられない。だから毎日つくる。',
+  job:'筋肉を動かす、体温をつくる、細胞を修復する、そして肝臓が異物を捨てる — すべての支払いに使う',
+  home:'食べたものから作る。体内の在庫は数十グラムしかない',
+  lost:'すべてが止まる',
+  note:'1日に作って使う総量は、体重とほぼ同じくらいの重さ。作っては即使い、また作るを繰り返している'},
+
+ {id:'nadh', nm:'NADH / FADH₂', yomi:'REDUCING EQUIVALENTS', alias:'還元当量（電池）',color:'#4C8E9E', prop:'battery',
+  copy:'まだお金ではない。ATPに両替される前の、電子の預かり証。',
+  job:'解糖系・TCA回路・β酸化で集められ、電子伝達系まで電子を運ぶ',
+  home:'ナイアシン（NAD）とビタミンB2（FAD）から作られる',
+  lost:'酸素が足りないと両替できず、渋滞して乳酸に回る',
+  note:'NADH 1個 ≒ 2.5ATP、FADH₂ 1個 ≒ 1.5ATP。厨房のTCA回路で集めているのはこれ'}
+];
+
+/* ========== ミニ辞典 ========== */
+const DICT = [
+ ['アセチルCoA','ACETYL-CoA','糖・脂質・たんぱく質、どの道から来てもここで合流する共通の通貨。TCA回路に入る唯一の切符。'],
+ ['補酵素','ほこうそ / coenzyme','酵素だけでは反応が進まないとき、助手として必要になる小さな分子。ビタミンB群の正体はほぼこれ。'],
+ ['抱合','ほうごう / conjugation','異物に別の分子をくっつけて、水に溶ける形に変えること。第2相の仕事そのもの。'],
+ ['CYP450','シップ よんごーまる','第1相を担当する酵素の一族。薬の飲み合わせで問題になるのはたいていこれ。グレープフルーツが一部の薬と相性が悪いのも、この酵素を邪魔するため。'],
+ ['乳酸','にゅうさん / lactate','ピルビン酸がミトコンドリアに入れなかったときの逃げ道。疲労物質と言われてきたが、現在は「一時的な貯金」と考えられており、あとで肝臓で糖に戻される。'],
+ ['腸肝循環','ちょうかんじゅんかん','胆汁に出したものが腸から再吸収され、肝臓に戻ってくること。食物繊維はこの輪を断ち切って便に運び出す。'],
+ ['ADI','一日摂取許容量','その物質を一生毎日とり続けても影響が出ないとされる量。動物実験で無影響だった量の、さらに100分の1に設定される。日本人の添加物の実際の摂取量は、多くがADIの数%程度。'],
+ ['ミトコンドリア','mitochondria','細胞の中の発電所。もとは別の細菌が細胞に住みついたものと考えられており、独自のDNAを持つ。母親からのみ受け継がれる。'],
+ ['クリステ','cristae','ミトコンドリア内膜のひだ。折りたたんで表面積を稼いでいる。電子伝達系はこのひだの上に並んでいる。'],
+ ['基質','きしつ / matrix','ミトコンドリアの内側の空間。TCA回路とβ酸化の現場。']
+];
+
+/* ========== 描画 ========== */
+const esc = s=>s;
+
+document.getElementById('pathlist').innerHTML = PATHS.map(p=>`
+  <article class="path">
+    <div class="top">
+      <h3>${p.nm}</h3><span class="yomi">${p.yomi}</span>
+      <span class="where">📍 ${p.where}</span>
+    </div>
+    <p class="one">${p.one}</p>
+    <div class="eq">${p.eq}</div>
+    <p class="detail">${p.detail}</p>
+    <p class="ingame">${p.ingame}</p>
+  </article>`).join('');
+
+/* キャラクターSVG：共通の体＋役割ごとの持ち物 */
+function propSVG(kind, color){
+  const dark = '#2A241F';
+  switch(kind){
+    case 'key':   return `<g transform="translate(96,58)"><circle cx="0" cy="0" r="9" fill="none" stroke="${dark}" stroke-width="4"/><path d="M8 0 H30 M24 0 V9 M30 0 V8" stroke="${dark}" stroke-width="4" stroke-linecap="round"/></g>`;
+    case 'twin':  return `<g transform="translate(88,46)"><path d="M0 0 H34 M17 0 V8" stroke="${dark}" stroke-width="3"/><circle cx="2" cy="16" r="8" fill="#fff" stroke="${dark}" stroke-width="3"/><circle cx="32" cy="16" r="8" fill="#fff" stroke="${dark}" stroke-width="3"/></g>`;
+    case 'bucket':return `<g transform="translate(94,52)"><path d="M0 6 L26 6 L22 30 L4 30 Z" fill="#fff" stroke="${dark}" stroke-width="3"/><path d="M2 6 A11 11 0 0 1 24 6" fill="none" stroke="${dark}" stroke-width="3"/><circle cx="13" cy="18" r="4" fill="${color}"/></g>`;
+    case 'cart':  return `<g transform="translate(92,54)"><rect x="0" y="0" width="32" height="16" rx="3" fill="#fff" stroke="${dark}" stroke-width="3"/><circle cx="8" cy="24" r="6" fill="none" stroke="${dark}" stroke-width="3"/><circle cx="26" cy="24" r="6" fill="none" stroke="${dark}" stroke-width="3"/></g>`;
+    case 'talk':  return `<g transform="translate(90,44)"><path d="M0 0 H36 A5 5 0 0 1 41 5 V22 A5 5 0 0 1 36 27 H14 L6 35 V27 H0 A5 5 0 0 1 -5 22 V5 A5 5 0 0 1 0 0 Z" fill="#fff" stroke="${dark}" stroke-width="3"/><path d="M6 10 H30 M6 18 H22" stroke="${dark}" stroke-width="3" stroke-linecap="round"/></g>`;
+    case 'plug':  return `<g transform="translate(94,50)"><rect x="6" y="10" width="22" height="20" rx="4" fill="#fff" stroke="${dark}" stroke-width="3"/><path d="M12 10 V0 M22 10 V0" stroke="${dark}" stroke-width="4" stroke-linecap="round"/><path d="M28 20 H40" stroke="${dark}" stroke-width="3" stroke-linecap="round"/></g>`;
+    case 'hands': return `<g transform="translate(92,54)"><path d="M0 12 q10 -14 20 0 q10 14 20 0" fill="none" stroke="${dark}" stroke-width="4" stroke-linecap="round"/><circle cx="20" cy="12" r="5" fill="${color}" stroke="${dark}" stroke-width="2.5"/></g>`;
+    case 'shield':return `<g transform="translate(92,44)"><path d="M18 0 L36 7 V22 C36 34 27 42 18 46 C9 42 0 34 0 22 V7 Z" fill="#fff" stroke="${dark}" stroke-width="3"/><path d="M18 12 V30 M10 21 H26" stroke="${color}" stroke-width="4" stroke-linecap="round"/></g>`;
+    case 'tag':   return `<g transform="translate(92,48)"><path d="M4 0 H30 A4 4 0 0 1 34 4 V26 A4 4 0 0 1 30 30 H4 L-6 15 Z" fill="#fff" stroke="${dark}" stroke-width="3"/><circle cx="6" cy="15" r="4" fill="none" stroke="${dark}" stroke-width="3"/><path d="M16 10 H28 M16 20 H28" stroke="${dark}" stroke-width="2.5" stroke-linecap="round"/></g>`;
+    case 'flag':  return `<g transform="translate(96,42)"><path d="M0 0 V44" stroke="${dark}" stroke-width="4" stroke-linecap="round"/><path d="M0 2 L30 10 L0 20 Z" fill="#fff" stroke="${dark}" stroke-width="3"/></g>`;
+    case 'bean':  return `<g transform="translate(96,58)"><ellipse cx="12" cy="12" rx="13" ry="10" fill="#fff" stroke="${dark}" stroke-width="3" transform="rotate(-18 12 12)"/><path d="M6 14 q6 -6 12 -2" stroke="${dark}" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>`;
+    case 'coin':  return `<g transform="translate(94,50)"><circle cx="16" cy="16" r="16" fill="#fff" stroke="${dark}" stroke-width="3"/><path d="M16 6 V26 M10 12 H22 M10 20 H22" stroke="${color}" stroke-width="3" stroke-linecap="round"/></g>`;
+    case 'battery':return `<g transform="translate(92,50)"><rect x="0" y="4" width="30" height="24" rx="4" fill="#fff" stroke="${dark}" stroke-width="3"/><rect x="30" y="12" width="6" height="8" rx="2" fill="${dark}"/><path d="M17 8 L9 18 H16 L13 26 L23 15 H16 Z" fill="${color}" stroke="${dark}" stroke-width="1.5" stroke-linejoin="round"/></g>`;
+    default: return '';
+  }
+}
+const FEATURE_ART = {
+  b1:'assets/characters/b1-keykeeper.png',
+  b2:'assets/characters/b2-twin-tech.png',
+  b3:'assets/characters/b3-electron-courier.png',
+  gsh:'assets/characters/gsh-guardian.png',
+  atp:'assets/characters/atp-energy-sprite.png'
+};
+function charSVG(c){
+  if(FEATURE_ART[c.id]) return `<img class="featured-art" src="${FEATURE_ART[c.id]}" alt="">`;
+  const dark='#2A241F';
+  return `<svg viewBox="0 0 150 130" width="150" height="130" aria-hidden="true">
+    <ellipse cx="52" cy="118" rx="30" ry="5" fill="rgba(0,0,0,.08)"/>
+    <path d="M30 112 v8 M56 112 v8" stroke="${dark}" stroke-width="5" stroke-linecap="round"/>
+    <path d="M22 121 h14 M50 121 h14" stroke="${dark}" stroke-width="5" stroke-linecap="round"/>
+    <path d="M18 74 q-12 12 -6 26" stroke="${dark}" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M74 74 q14 6 20 -4" stroke="${dark}" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="46" cy="72" rx="34" ry="40" fill="${c.color}" stroke="${dark}" stroke-width="3.5"/>
+    <ellipse cx="46" cy="86" rx="20" ry="20" fill="rgba(255,255,255,.22)"/>
+    <circle cx="34" cy="66" r="4.6" fill="${dark}"/><circle cx="35.6" cy="64.4" r="1.6" fill="#fff"/>
+    <circle cx="58" cy="66" r="4.6" fill="${dark}"/><circle cx="59.6" cy="64.4" r="1.6" fill="#fff"/>
+    <path d="M40 78 q6 7 12 0" stroke="${dark}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="26" cy="78" rx="5" ry="3.4" fill="rgba(255,255,255,.4)"/>
+    <ellipse cx="66" cy="78" rx="5" ry="3.4" fill="rgba(255,255,255,.4)"/>
+    ${propSVG(c.prop, c.color)}
+  </svg>`;
+}
+document.getElementById('charlist').innerHTML = CHARS.map(c=>`
+  <article class="char">
+    <div class="bar" style="background:${c.color}"></div>
+    <div class="head">
+      <div class="figure ${FEATURE_ART[c.id]?'featured':''}" style="background:${c.color}1F;--art-tint:${c.color}2B">${charSVG(c)}</div>
+      <div class="names">
+        <h3>${c.nm}</h3>
+        <div class="yomi">${c.yomi}</div>
+        <div class="alias">${c.alias}</div>
+      </div>
+    </div>
+    <p class="copy">「${c.copy}」</p>
+    <dl>
+      <dt>しごと</dt><dd>${c.job}</dd>
+      <dt>いる場所</dt><dd>${c.home}</dd>
+      <dt>切れると</dt><dd>${c.lost}</dd>
+      <dt>豆知識</dt><dd>${c.note}</dd>
+    </dl>
+  </article>`).join('');
+
+document.getElementById('dictlist').innerHTML = DICT.map(([t,y,d])=>`
+  <div class="row"><div class="t">${t}<small>${y}</small></div><div class="d">${d}</div></div>`).join('');
+</script>
+</body>
+</html>
